@@ -1,0 +1,9 @@
+git clone https://github.com/joshlcoffin/k8s-springboot-data-rest.git
+
+cd k8s-springboot-data-rest
+
+chmod 700 ./shell-scripts/jenkins-acr-auth.sh
+
+nano ./shell-scripts/jenkins-acr-auth.sh
+
+./shell-scripts/jenkins-acr-auth.sh

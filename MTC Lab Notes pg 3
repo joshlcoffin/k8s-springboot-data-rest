@@ -1,0 +1,17 @@
+sudo yum update
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce-18.03.0.ce
+sudo systemctl enable docker
+sudo groupadd docker
+sudo usermod -aG docker joshlamont
+
+docker info
+
+docker pull microsoft/vsts-agent:ubuntu-16.04-docker-18.06.1-ce-standard
+docker images
+
+VSTS_TOKEN: *****
+VSTS_ACCOUNT: kcsandbox
+
+docker run -e VSTS_ACCOUNT=kcsandbox -e VSTS_TOKEN=***** -v /var/run/docker.sock:/var/run/docker.sock --name vstsagent -it microsoft/vsts-agent
